@@ -21,7 +21,9 @@ class Poster:
             "special": "#FFFF00",
             "track": "#4DD2FF",
         }
-        self.width = 200
+        # self.width = 200
+        # 暂时修改
+        self.width = 192
         self.height = 300
         self.years = None
         # maybe support more type
@@ -84,7 +86,9 @@ class Poster:
         d.viewbox(0, 0, self.width, height)
         d.add(d.rect((0, 0), (width, height), fill=self.colors["background"]))
         self.__draw_header(d)
-        self.__draw_tracks(d, XY(10, 30))
+        # self.__draw_tracks(d, XY(4, 0))
+        # 暂时修改
+        self.__draw_tracks(d, XY(4, 0))
         # for multiple types show
         if self.is_multiple_type:
             self.__draw_footer(d)
@@ -96,7 +100,8 @@ class Poster:
     def __draw_header(self, d):
         text_color = self.colors["text"]
         title_style = "font-size:12px; font-family:Arial; font-weight:bold;"
-        d.add(d.text(self.title, insert=(10, 20), fill=text_color, style=title_style))
+        # 暂时修改，不要 header
+        # d.add(d.text(self.title, insert=(10, 20), fill=text_color, style=title_style))
 
     def __draw_footer(self, d):
         self.tracks_drawer.draw_footer(d)
